@@ -1,0 +1,13 @@
+{
+    "grammarly.selectors": [
+        {
+            "language": "json",
+            "scheme": "file",
+            "pattern": "release/Solana/yal_metadata.json"
+        },
+        {
+            "language": "json",
+            "scheme": "file"
+        }
+    ]
+}

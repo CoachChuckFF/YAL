@@ -1,0 +1,46 @@
+{
+  "name": "A Reminder.",
+  "symbol": "YAL",
+  "description": "A reminder that YOU are loved. Always.",
+  "collection": {
+    "name": "A Reminder.",
+    "family": "Everyone"
+  },
+  "attributes": [
+    {
+      "trait_type": "❤️ - Reminder ",
+      "value": "This little token is a reminder that YOU have value, that YOU are worth it, and that YOU ARE LOVED! Always."
+    },
+    {
+      "trait_type": "🌱 - Directions ",
+      "value": "1. Close your eyes. 2. Inhale slowly through your nose while speaking the names of loved ones in your head (Yourself included!). 3. Exhale slowly through your mouth. 4. Repeat steps 1-3 five times. 5. Open your eyes."
+    },
+    {
+      "trait_type": "🫂 - Share ",
+      "value": "Send this to someone you think could use a little reminder that they are loved. You can always mint more 🤗"
+    }
+  ],
+  "seller_fee_basis_points": 0,
+  "external_url": "https://shdw-drive.genesysgo.net/6P6WznKbJ2nEMCfrXZDQvipCgCSx45SXxjWMWvqfPtyJ/yal_website.html",
+  "animation_url": "https://shdw-drive.genesysgo.net/6P6WznKbJ2nEMCfrXZDQvipCgCSx45SXxjWMWvqfPtyJ/yal_model.glb",
+  "image": "https://shdw-drive.genesysgo.net/6P6WznKbJ2nEMCfrXZDQvipCgCSx45SXxjWMWvqfPtyJ/yal_image.png",
+  "properties": {
+    "files": [
+      {
+        "uri": "https://shdw-drive.genesysgo.net/6P6WznKbJ2nEMCfrXZDQvipCgCSx45SXxjWMWvqfPtyJ/yal_model.glb",
+        "type": "application/octet-stream"
+      },
+      {
+        "uri": "https://shdw-drive.genesysgo.net/6P6WznKbJ2nEMCfrXZDQvipCgCSx45SXxjWMWvqfPtyJ/yal_image.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "vr",
+    "creators": [
+      {
+        "address": "YALJjoLeGBnHpxMwJUfhSQvVS1Kp1gbdLu79T6PnkAQ",
+        "share": 100
+      }
+    ]
+  }
+}

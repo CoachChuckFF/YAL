@@ -1,0 +1,33 @@
+{
+    "name": "Tree 0x8",
+    "symbol": "ST-T8",
+    "description": "I like to name my trees!",
+    "seller_fee_basis_points": 0,
+    "collection": {
+      "name": "V1",
+      "family": "Sol Treasure"
+    },
+    "image": "https://soltreasure.s3.amazonaws.com/desolates/Trees/tree_8.png?ext=png",
+    "attributes": [
+      {
+        "trait_type": "Is Good Tree?",
+        "value": "TRUE"
+      }
+    ],
+    "external_url": "https://twitter.com/CoachChuckFF",
+    "properties": {
+      "files": [
+        {
+          "uri": "https://soltreasure.s3.amazonaws.com/desolates/Trees/tree_8.png?ext=png",
+          "type": "image/png"
+        }
+      ],
+      "category": "image",
+      "creators": [
+        {
+          "address": "HAzgWmFC2TGw1Ry6C3h2i2eAnnbrD91wDremBSxXBgCB",
+          "share": 100
+        }
+      ]
+    }
+}

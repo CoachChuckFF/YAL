@@ -1,0 +1,784 @@
+body {
+  background-color: #000000;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.scene-container {
+  height: 100vh;
+  width: 100%;
+  z-index: -5;
+  position: absolute;
+}
+
+/* --------- Puzzles -------------- */
+
+@keyframes fade-in-frame {
+  0% {opacity: 0;}
+  100% {opacity: 0.89;}
+}
+
+@keyframes fade-out-frame {
+  0% {opacity: 0.89;}
+  100% {opacity: 0;}
+}
+
+@keyframes fade-in {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+@keyframes fade-out {
+  0% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+.puzzle-frame {
+  height: 100vh;
+  width: 100%;
+  z-index: -20;
+  background-color: #000000;
+  position: absolute;
+  opacity: 0.89;
+  animation-name: fade-in-frame;
+  animation-duration: 0.55s;
+}
+
+.puzzle-frame-out {
+  height: 100vh;
+  width: 100%;
+  z-index: -20;
+  position: absolute;
+  background-color: #000000;
+  opacity: 0;
+  animation-name: fade-out-frame;
+  animation-duration: 0.55s;
+}
+
+.puzzle-page {
+  height: 100vh;
+  width: 100%;
+  max-width: 555;
+  z-index: 30;
+  position: absolute;
+  opacity: 1;
+  animation-name: fade-in;
+  animation-duration: 0.55s;
+}
+
+.puzzle-page-out {
+  height: 100vh;
+  width: 100%;
+  z-index: 30;
+  position: absolute;
+  background-color: #000000;
+  opacity: 0;
+  animation-name: fade-out;
+  animation-duration: 0.55s;
+}
+
+.puzzle-header {
+  left: 0; 
+  right: 0; 
+  width: 89%;
+  max-width: 555px;
+  margin-left: auto; 
+  margin-right: auto; 
+  padding-top: 2vh;
+  height: 4vh;
+  padding-bottom: 2vh;
+  position: absolute;
+  text-align: center;
+  font-size: x-large;
+  font-weight: bold;
+  color: #EAEAEA;
+}
+
+.puzzle-area {
+  /* background-color: blue; */
+  width: 89%;
+  max-width: 555px;
+  height: 72vh;
+  top: 8vh;
+  left: 0; 
+  right: 0; 
+  margin-left: auto; 
+  margin-right: auto; 
+  position: absolute;
+  text-align: center;
+  font-size: x-large;
+  font-weight: bold;
+  color: #EAEAEA;
+}
+
+.hub-controls {
+  width: 100%;
+  max-width: 555;
+  position: absolute;
+  bottom: 0;
+}
+
+.puzzle-controls {
+  width: 89%;
+  max-width: 555px;
+  /* background-color: #005C67; */
+  height: 20vh;
+  bottom: 0;
+  left: 0; 
+  right: 0; 
+  margin-left: auto; 
+  margin-right: auto; 
+  position: absolute;
+  text-align: center;
+  pointer-events: none;
+}
+
+.puzzle-control-row {
+  display: block;
+  font-size: large;
+  color: #EAEAEA;
+  pointer-events: all;
+  width: 100%;
+  height: 33%;
+  opacity: 1;
+  transition: all 150ms ease;
+}
+
+.puzzle-control-row-blank {
+  display: block;
+  font-size: large;
+  color: #EAEAEA;
+  width: 100%;
+  height: 33%;
+  opacity: 0;
+  transition: all 150ms ease;
+}
+
+.puzzle-control-row-blank {
+  display: block;
+  font-size: large;
+  color: #EAEAEA;
+  width: 100%;
+  height: 33%;
+  pointer-events: none;
+}
+
+.puzzle-code-header {
+  width: 100%;
+  font-weight: bold;
+  color: #777777;
+  text-shadow: 3px 3px 5px black;
+}
+
+.puzzle-code {
+  width: 100%;
+  color: #777777;
+  text-shadow: 3px 3px 5px black;
+}
+
+/* ------------ NOOT Puzzle ------------------ */
+.noot-grid {
+  display: block;
+  margin: auto;
+  max-width: 500px;
+  max-height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 5px;
+}
+.noot-grid div {
+  aspect-ratio: 1;
+}
+.noot-image {
+  width: 90%;
+}
+.noot-image img:hover{
+  width: 90%;
+  transition: all 150ms ease;
+  border: 5px solid #005C67;
+}
+.noot-image img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: 5px solid #000;
+  border-radius: 13px;
+  width: 100%;
+  object-fit: contain;
+  transition: all 150ms ease;
+}
+.noot-selected {
+  width: 90%;
+}
+.noot-selected img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: 5px solid #4FA5C4;
+  border-radius: 13px;
+  width: 90%;
+  object-fit: contain;
+  transition: all 150ms ease;
+}
+.noot-selected img:hover {
+  border: 5px solid #4FA5C4;
+}
+.noot-solscan {
+  width: 100%;
+  margin-top: 5px;
+}
+.noot-solscan a {
+  color: #EAEAEA;
+  font-size: large;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  transition: all 150ms ease;
+}
+.noot-solscan a:hover {
+  color: #4FA5C4;
+}
+
+/* Dronie */
+
+.dronie-top {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 20%;
+  width: 100%;
+  max-width: 555px;
+  text-align: left;
+}
+
+.dronie-top img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: 5px solid #000;
+  border-radius: 13px;
+  height: 90%;
+  object-fit: contain;
+  transition: all 150ms ease;
+}
+
+.dronie-top img:hover{
+  border: 5px solid #9945FF;
+}
+
+.dronie-terminal-space {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  /* background-color: #14F195; */
+  height: 40%;
+  width: 100%;
+  max-width: 555px;
+  text-align: left;
+}
+
+.dronie-user-terminal-space {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  /* background-color: #4FA5C4; */
+  height: 30%;
+  width: 100%;
+  max-width: 555px;
+  text-align: left;
+}
+
+.dronie-controls {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 10%;
+  width: 100%;
+  max-width: 555px;
+  text-align: left;
+}
+
+/* DESOLATEs */
+
+.nft-image {
+  width: 90%;
+}
+
+.nft-image img:hover{
+  width: 90%;
+  transition: all 150ms ease;
+  border: 5px solid #79008F;
+}
+
+.nft-image img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: 5px solid #000;
+  border-radius: 13px;
+  width: 100%;
+  object-fit: contain;
+  transition: all 150ms ease;
+}
+
+.nft-selected {
+  width: 90%;
+}
+.nft-selected img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: 5px solid #9945FF;
+  border-radius: 13px;
+  width: 90%;
+  object-fit: contain;
+  transition: all 150ms ease;
+}
+.nft-selected img:hover {
+  border: 5px solid #F7CCFF;
+}
+
+
+.state-container {
+  width: 89%;
+  position: absolute;
+  top: 3vh;
+  left: 0; 
+  right: 0; 
+  margin-left: auto; 
+  margin-right: auto; 
+  color: #383838;
+  text-align: center;
+  font-size: small;
+}
+
+
+.color-change-box {
+  width: 90%;
+  height: 90%;
+  max-width: 555px;
+  margin: auto;
+}
+
+.color-text {
+  color: #CDD2D6;
+}
+
+.color-box {
+  border: 5px solid #757575;
+  color: #757575;
+  width: 90%;
+  height: 50%;
+  max-width: 555px;
+  margin: auto;
+  border-radius: 13px;
+  transition: all 150ms ease;
+  text-align: center;
+}
+
+.middle-box {
+  display: table-cell; 
+  vertical-align: middle;
+  height: 100%;
+  width: 90%;
+}
+
+.color-box-text {
+  display: table; 
+  width: 100%;
+  height: 100%;
+}
+
+.color-box-text-center {
+  display: table-cell; 
+  vertical-align: middle;
+}
+
+.color-box:hover {
+  border: 5px solid #FFF;
+  color: #FFF;
+}
+
+.puzzle-quarter {
+  display: table; 
+  height: 33%;
+  width: 100%;
+}
+
+.puzzle-half {
+  position: relative;
+  height: 33%;
+  width: 100%;
+  text-align: center;
+}
+
+.puzzle-half-centered {
+  max-width: 90%;
+  max-height: 100%;
+  display: block;
+  margin: auto;
+
+  border: 5px solid #000;
+  border-radius: 13px;
+  width: auto;
+  object-fit: contain;
+  transition: all 150ms ease;
+}
+
+.puzzle-half-centered:hover {
+  color: #14F195;
+}
+
+.puzzle-half img{
+  max-width: 90%;
+  max-height: 100%;
+  display: block;
+  margin: auto;
+
+  border: 5px solid #000;
+  border-radius: 13px;
+  width: auto;
+  object-fit: contain;
+  transition: all 150ms ease;
+}
+
+.puzzle-half img:hover{
+  border: 5px solid #14F195;
+}
+
+.puzzle-thrid {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 33%;
+  width: 100%;
+  max-width: 555px;
+  text-align: left;
+}
+
+.puzzle-thrid {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 33%;
+  width: 100%;
+  max-width: 555px;
+  text-align: left;
+}
+
+.puzzle-thrid img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: 5px solid #000;
+  border-radius: 13px;
+  height: 90%;
+  object-fit: contain;
+  transition: all 150ms ease;
+}
+
+.puzzle-thrid img:hover{
+  border: 5px solid #9945FF;
+}
+
+.demo-center {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.demo-top {
+  position: block;
+  height: 40%;
+  width: 100%;
+}
+
+.demo-bottom {
+  position: relative;
+  height: 40%;
+  width: 100%;
+}
+
+.demo-left {
+  display: inline-flex;
+  justify-content: center;
+  height: 100%;
+  width: 50%;
+}
+
+.demo-right {
+  display: inline-flex;
+  justify-content: center;
+  width: 50%;
+  height: 100%;
+}
+
+.demo-speed {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  height: 10%;
+  width: 100%;
+}
+
+.demo-image {
+  position: block;
+  margin: auto;
+  width: 90%;
+}
+.demo-image img:hover{
+  transition: all 150ms ease;
+  border: 5px solid #6F4F00;
+}
+.demo-image img{
+  display: block;
+  margin: auto;
+  border: 5px solid #000;
+  border-radius: 13px;
+  max-height: 80%;
+  max-width: 80%;
+  object-fit: contain;
+  transition: all 150ms ease;
+}
+
+.demo-selected {
+  position: block;
+  margin: auto;
+  width: 90%;
+}
+.demo-selected img{
+  display: block;
+  margin: auto;
+  border: 5px solid #FFB600;
+  border-radius: 13px;
+  max-height: 80%;
+  max-width: 80%;
+  object-fit: contain;
+  transition: all 150ms ease;
+}
+.demo-selected img:hover {
+  transition: all 150ms ease;
+  border: 5px solid #FFB600;
+}
+
+.demo-solscan {
+  width: 100%;
+  height: 100%;
+}
+.demo-solscan a {
+  color: #EAEAEA;
+  font-size: large;
+  font-weight: bold;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  transition: all 150ms ease;
+}
+.demo-solscan a:hover {
+  color: #FFB600;
+}
+
+.rug-top {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  /* background-color: #14F195; */
+  height: 20%;
+  width: 100%;
+  max-width: 555px;
+  text-align: left;
+}
+
+.rug-bottom {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  /* background-color: #14F195; */
+  height: 20%;
+  width: 100%;
+  max-width: 555px;
+  text-align: left;
+}
+
+.rug-middle {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  /* background-color: #14F195; */
+  height: 60%;
+  width: 100%;
+  max-width: 555px;
+  text-align: left;
+}
+
+.rug-terminal {
+  height: 10vh;
+  width: 100%;
+  max-width: 555px;
+  line-height: 130%;
+  overflow-wrap: break-word;
+  text-align: left;
+  font-size: x-large;
+  color: #EEEEEE;
+  font-weight: bold;
+  padding-bottom: 3vh;
+}
+
+.terminal {
+  height: 10vh;
+  width: 100%;
+  max-width: 555px;
+  overflow-wrap: break-word;
+  text-align: left;
+  font-size: x-large;
+  color: #14F195;
+  font-weight: bold;
+  padding-bottom: 3vh;
+}
+
+.dronie-terminal {
+  height: 10vh;
+  width: 100%;
+  max-width: 555px;
+  overflow-wrap: break-word;
+  text-align: left;
+  font-size: x-large;
+  color: #9945FF;
+  font-weight: bold;
+  padding-bottom: 3vh;
+}
+
+.dronie-terminal-text {
+  font-family: LCD;
+  font-size: x-small;
+  padding-top: 2vh;
+  display:inline;
+  float:left;
+}
+
+.dronie-terminal-header-footer {
+  display:inline;
+  float:left;
+}
+
+.your-codes-header a{
+  transition: all 150ms ease;
+  color: #FFF;
+}
+
+.your-codes-header a:hover{
+  color: #9945FF;
+}
+
+.code-container {
+  width: 89%;
+  max-width: 555px;
+  position: absolute;
+  bottom: 5vh;
+  left: 0; 
+  right: 0; 
+  margin-left: auto; 
+  margin-right: auto; 
+}
+
+.scene-overlay {
+  height: 0;
+  width: 0;
+  opacity: 0.0;
+  pointer-events: none;
+}
+
+@keyframes scene-change {
+  0% {opacity: 0;}
+  30% {opacity: 1;}
+  /* Waiting time */
+  70% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+.scene-change {
+  height: 100vh;
+  width: 100%;
+  margin: auto;
+  position: absolute;
+  left: 0; 
+  bottom: 0; 
+  z-index: 10;
+  display: block;
+  background-color: #000000;
+  pointer-events: all;
+  opacity: 0;
+  animation-name: scene-change;
+  animation-duration: 2s;
+}
+
+.icon-spin {
+  margin-right: 5px;
+  animation: spin-animation 0.5s infinite;
+}
+
+@keyframes spin-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
+
+.message { 
+  width: 100%;
+  position: absolute;
+  top: 34%;
+  text-align: center;
+  color: white;
+  font-size: xx-large;
+}
+
+.test {
+  width: 100%;
+  font-family: "Vimland";
+  position: absolute;
+  top: 34%;
+  text-align: center;
+  color: white;
+  font-size: xx-large;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #222222;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

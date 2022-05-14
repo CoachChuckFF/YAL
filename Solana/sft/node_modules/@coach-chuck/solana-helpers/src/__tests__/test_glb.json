@@ -1,0 +1,27 @@
+{
+    "name": "BLUE Chest",
+    "description": "BLUE Chest for the DESOLATEs puzzle",
+    "seller_fee_basis_points": 0,
+    "symbol": "ST-S0",
+    "collection": {
+      "name": "Supernova 0",
+      "family": "Sol-Treasure"
+    },
+    "animation_url": "https://soltreasure.s3.amazonaws.com/desolates/Chests/blue_chest.glb?ext=glb",
+    "external_url": "https://twitter.com/CoachChuckFF",
+    "properties": {
+      "files": [
+        {
+          "uri": "https://soltreasure.s3.amazonaws.com/desolates/Chests/blue_chest.glb?ext=glb",
+          "type": "application/octet-stream"
+        }
+      ],
+      "category": "vr",
+      "creators": [
+        {
+          "address": "HAzgWmFC2TGw1Ry6C3h2i2eAnnbrD91wDremBSxXBgCB",
+          "share": 100
+        }
+      ]
+    }
+  }
