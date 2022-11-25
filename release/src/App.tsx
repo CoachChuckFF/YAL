@@ -10,6 +10,7 @@ import * as STSolana from './controllers/solana';
 import { STHUD } from './views/hud';
 import { STWorld } from './pages/world';
 import { PezProvider, getPezDispenser, takePez, YAL_PEZ_ID } from './controllers/pez';
+import { SettingsView } from './views/settings';
 
 function Loop(){
   const {
@@ -18,16 +19,21 @@ function Loop(){
     loveCount: [loveCount, setLoveCount],
     curtains: [curtains, drawCurtains],
     isLoading: [isLoading, setIsLoading],
+    settingsVisable: [settingsVisable],
+    rpc: [rpc],
   } = React.useContext(StoreContext);
 
   const connectWallet = (onlyIfTrusted?:boolean) => { 
     setIsLoading(true);
     STSolana.connectWallet(onlyIfTrusted).then(async (walletKey:PublicKey)=>{
       setpezProvider(await PezProvider.init(
-        STSolana.getProvider()
+        STSolana.getProvider(rpc)
       ))
     }).catch((error)=>{
       console.log("Connecting Wallet Error", error);
+      drawCurtains(
+        `Connecting Wallet Error: (${error})`,
+      );
       setIsLoading(false);
     });
   };
@@ -95,6 +101,8 @@ function Loop(){
     }
   }, [pezProvider]);
 
+  if(settingsVisable) return null;
+
   return (<>
 
     <STHUD 
@@ -109,6 +117,7 @@ function App() {
     <div className="App">
       <STThemeProvider>
         <StoreProvider>
+          <SettingsView />
           <Loop/>
           <STWorld />
           <STCurtains/>

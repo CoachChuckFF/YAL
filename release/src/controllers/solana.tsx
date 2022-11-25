@@ -27,11 +27,11 @@ export const connectWallet = (onlyIfTrusted?: boolean) => {
 };
 
 
-export const getProvider = () => {
+export const getProvider = (rpcUrl?: string) => {
     const opts = anchor.Provider.defaultOptions()
     const provider = new anchor.Provider(
       new anchor.web3.Connection(
-        web3.clusterApiUrl('mainnet-beta'), 
+        rpcUrl ?? web3.clusterApiUrl('mainnet-beta'), 
         opts.preflightCommitment
     ),
       getSolanaWallet(),
