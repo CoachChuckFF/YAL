@@ -8,7 +8,7 @@ export enum YALState {
     Connected = "Connected.",
 }
 
-export const DEFAULT_RPC = 'https://quiet-muddy-log.solana-mainnet.quiknode.pro/4fffdad3de6974646ada97e9a6941f6aa3c5fd8e/';
+export const DEFAULT_RPC = 'https://solana-mainnet.rpc.extrnode.com';
 
 // TODO Change to Player State
 export interface Store {
